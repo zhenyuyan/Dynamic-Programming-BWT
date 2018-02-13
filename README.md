@@ -3,7 +3,7 @@
 1. NW.py:
 This file is a program of needleman - wunsch dynamic programming algorithm.
 Scores :mismatch: - 1, match 0, gap  - 1.
-i. input: a fasta file which contains to strings of DNA. You can input example.fasta
+i. input: a fasta file which contains two strings of DNA. You can input example.fasta
 here.
 ii. output: the result of dynamic programming alignment result.
 
