@@ -4,7 +4,7 @@
 
 # WARNING: Do not change the file name, or the function signatures below.
 # Autograder expects these names exactly.
-import re
+import re,sys
 def rle(s):
     """Run Length Encoder
     Args: s, string to be encoded
@@ -102,7 +102,7 @@ def test_string(s):
 
 if __name__ == "__main__":
     # Add more of your own strings to explore for question (i)
-    test_strings = ["WOOOOOHOOOOHOOOO!",
-                    "scottytartanscottytartanscottytartanscottytartan"]
+    test_strings = [sys.argv[1],
+                    sys.argv[2]]
     for s in test_strings:
         test_string(s)
