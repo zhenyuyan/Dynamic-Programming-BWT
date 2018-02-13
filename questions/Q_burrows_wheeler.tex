@@ -1,0 +1,50 @@
+{\bf [25 points] Burrows-Wheeler Transform}\\
+
+\vspace{0.1in}
+
+In this problem, you will complete several functions in \textbf{\texttt{BWT.py}}, related to the Burrows-Wheeler Transform (BWT).
+
+\begin{enumerate}
+    \item The haploid human genome has 3,234.83 Mega-basepairs. How many gigabytes would it take to store this information (Hint: first determine how many bits you need to encode a nucleotide)? \textit{Paris japonica} has the longest plant genome sequenced so far, at 150 billion base pairs; how many gigabytes would you need to store it?
+\end{enumerate}
+
+Genomes are quite large! Compressing the genome to be as small as possible, without losing any information, is vital for efficient storage and computation. Here we will explore a simple, reversible compression technique called Run Length Encoding (RLE). If a character is repeated more than once, we replace it with two instances of that character followed by the length of the run. If it only occurs once, we leave it alone. For example:
+
+{
+\begin{center}
+    $RLE(\textrm{``WOOOOOHOOOOHOOOO!"}) = $ ``WOO5HOO4HOO4!"
+\end{center}
+}
+
+\begin{enumerate}
+  \setcounter{enumii}{1}
+  \item \label{scottytartan} Complete the \texttt{rle} function in \textbf{\texttt{BWT.py}} to return the run-length-encoded version of an input string. \textbf{This must be your own code, you may not take code from elsewhere}. Use your function to encode the string:\\
+  \texttt{"scottytartanscottytartanscottytartanscottytartan"}\\How long is the encoded string?
+\end{enumerate}
+
+BWT is a technique to transform a sequence into one that has more repeated runs of characters. The transform is lossless, and easily reversible. As we discussed in class, this helps when trying to search for a substring. It can also help when performing lossless compression. See the Wikipedia \href{https://en.wikipedia.org/wiki/Burrows–Wheeler_transform}{article} for more details. \textbf{Feel free to use their python implementation for your code below.}
+
+
+\begin{enumerate}
+  \setcounter{enumii}{2}
+  \item Complete the \texttt{bwt\_encode} function in \textbf{\texttt{BWT.py}} to return the transformed version of an input string (You must as a first step insert ``\texttt{\{}" and ``\texttt{\}}" at the beginning and end of the input string, respectively. You may assume that these two characters will not appear in any raw input strings).
+  \item Complete the \texttt{bwt\_decode} function in \textbf{\texttt{BWT.py}} to return the original string given the BWT version as input (The input BWT string will contain the ``\texttt{\{}" and ``\texttt{\}}" delimiters, but your decoded output should not).
+\end{enumerate}
+
+For questions \ref{encode_rutime} and \ref{decode_runtime} below, assume you are using the most straightforward, basic implementation of BWT, and that anytime you need to sort, you use Merge Sort.
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+  \item \label{encode_rutime}What is the worst case runtime complexity of \texttt{bwt\_encode}?
+  \item \label{decode_runtime}What is the worst case runtime complexity of \texttt{bwt\_decode}?
+  \item Now compute  RLE(BWT(<same string from \ref{scottytartan}>)). How long is the encoded string now?
+  \item Explain in your own words how BWT makes it so that the transformed strings have long runs of identical characters.
+  \item Finally, explore using the BWT followed by RLE for various strings (each of your examples should be at most 100 characters long, and you can use the full alphabet, save for ``\{" and ``\}", and \textbf{must not be trivial copies of the two given strings in the file}):
+  \begin{enumerate}
+      \item Give an example string where the final string is longer than the original.
+      \item List two example strings where the final strings are shorter.
+      \item What type of strings seem to compress better with \texttt{rle(bwt(s))}? What are these called in DNA?
+  \end{enumerate}
+\end{enumerate}
+
+In practice, even more compression is applied after RLE(BWT(s)), and there are clever ways to search for matches against a string while it is compressed. BowTie (6961 citations) and BowTie2 (5680 citations) are a famous DNA alignment tools that make use of these techniques, making it possible to align millions of DNA reads to the genome within hours on a laptop.

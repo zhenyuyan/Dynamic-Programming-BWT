@@ -1,0 +1,20 @@
+{\bf [25 points] Multiple Sequence Alignment (MSA)}\\
+\begin{enumerate}
+
+\item We discussed in class (and in problem \ref{NW}) a method to align two strings using dynamic programming. At each step, the algorithm needs to look at three neighbors to fill in a dynamic programming table cell. Consider now the problem of multiple sequence alignment.  Assume we are attempting to align three strings simultaneously using a dynamic programming cube in a similar fashion. How many neighbors will the algorithm need to check to fill in each entry in this matrix? Explain.
+\item Extend this further to $K>3$ strings, each of length roughly $N$. What is the runtime complexity of the alignment algorithm (Explain how you arrive at this answer)? Also name the complexity class to which the algorithm belongs. Would you consider this an efficient algorithm?
+\item Does this method result in the optimal multiple sequence alignment? (Yes or No is fine).
+\item Given the run time discussed above, multiple sequence alignment methods rely on heuristics. Consider the following method:\\
+We are performing a progressive multiple sequence alignment. The scoring is (match $m=2$, mismatch $n=0$, gap $g=-2$, and gaps that align with each other do not contribute to the score)
+We first align Seq1 and Seq2. Now consider adding the sequence Seq3=\texttt{AGC} to the pairwise alignment. The total score for the MSA (which we are maximizing) is the sum of pairwise alignments between the sequences. 
+\begin{align*}
+Seq1& \texttt{  AT\_C}\\
+Seq2& \texttt{  ATGC}\\
+\end{align*}
+\begin{itemize}
+\item What is the optimal alignment and its score for Seq3 under the sum-of-pairs MSA scoring method? Make sure to correctly score induced alignments. Show your work.
+\item What should the mismatch score be so that the two possible alignments (assigning the G of Seq3 to position 2 or position 3) have equal scores?
+\item Let's say we have the following progressive method for aligning K sequences: We first align two sequences. We treat this alignment of two sequences as a single object, $A$, and assuming we have an algorithm that can align a single sequence with an alignment object, we try aligning $A$ with all remaining sequences and pick the best scoring alignment as the new $A$ (which now is the alignment of three sequences). We do this until we have a multiple sequence alignment for all K sequences. What is the runtime complexity (Explain)?
+\end{itemize}
+\item Propose a different heuristic method for multiple sequence alignment. Describe your method and give its runtime complexity.
+\end{enumerate}

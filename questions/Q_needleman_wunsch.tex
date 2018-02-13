@@ -1,0 +1,36 @@
+{\bf [25 points] Sequence Alignment}\\
+
+
+{\bf Warning:} \textbf{You should implement the dynamic programming from scratch in Python.}
+\vspace{0.1in}
+
+Complete the function \texttt{needleman\_wunsch} in the python script \textbf{\texttt{NW.py}} to implement the Needleman-Wunsch algorithm with the scoring function below:
+
+\[
+\left\{
+  \begin{tabular}{l r}
+  Match:    & 0 \\
+  Mismatch: & -1 \\
+  Gap:      & -1
+  \end{tabular}
+\right.
+\]
+ 
+\fbox{\parbox{0.8\textwidth}{
+\textbf{Note: }{Your code is graded by an autograder. The script should be able to run with command line:\\
+
+\texttt{python NW.py example.fasta}\\
+
+The \texttt{needlman\_wunsch} function should return a single value, a string with three lines with the following format:\\
+\fbox{\parbox{0.4\textwidth}{
+alignment score\\
+alignment in the first sequence\\
+alignment in the second sequence}}\\
+
+Each of the three items should be in separate lines, no space in front of or after each line (the box is not a part of the format). For example:\\
+\fbox{\parbox{0.4\textwidth}{
+\texttt{-2}\\
+\texttt{AT-GC}\\
+\texttt{ATTGA}}}
+}
+}}
