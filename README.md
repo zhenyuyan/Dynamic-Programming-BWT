@@ -13,12 +13,12 @@ GGTAGCTTAAAGAAGCAGCATAGGTTTTAGGTGATCCCTCAGCTTAACACAAGGGGAAAATACTTTATAGGCTGGTTTGC
 GGTAGCTTAAAGAAGCAGCATAGGTTTTAGGTGATCCCTCAGCTTAACACAAGGGGAAAATACTTTATAGGCTGGTTTGCAAACTATCATTTGCGCTGTTTAGTCAAGGCTGCCAAGAAAACTGTTGGAATTCTTAAGTAATTAGCTCAGCAGCTTGGCTTGAATTCAAAATACCAGCTCTGAAGGGATCC--ATATCAGCTCCAGCGCCAAAAAGCACCTCACTTTAGGGACAC-CTGAGTATCTTAGAGATTGTTTTCCTCTGTTCTCCCAGGCCTATGACATGGAGCACACTTTCTACAGCAATGGAGAGAAGAAGAAGATTTACATGGAAATTGATCCTGTGACCAGAACTGAAATATTCAGAAGCGGAAATGGCACTGATGAAACATTGGAAGTGCACGACTTTAAA--CGGATACACTGGCATCTACTTCGTGGGTCTTCAAAAATGTTTTATCAAAACTCAGATTAAAGTGATTCCTGAATTTTCTGAACCAGAAGAGGAAATAGATGAGAATGAAGAAATTACCACAACTTTCTTTG
 
 2 BWT.py:
-  Burrows-Wheeler Transform and Run Length Encoding (RLE).
-  You can consult https://en.wikipedia.org/wiki/Burrows–Wheeler_transform for more details.
-  i. input: two strings that you want to encode,decode with.
-  ii. output: The result of rle, BWT-encoding , BWT-decoding.
-  example input: python BWT.py WOOOOHOOOOHOOOO! scottytartanscottytartan
-  example output:
+Burrows-Wheeler Transform and Run Length Encoding (RLE).
+You can consult https://en.wikipedia.org/wiki/Burrows–Wheeler_transform for more details.
+i. input: two strings that you want to encode,decode with.
+ii. output: The result of rle, BWT-encoding , BWT-decoding.
+example input: python BWT.py WOOOOHOOOOHOOOO! scottytartanscottytartan
+example output:
 original                  ( 16) WOOOOHOOOOHOOOO!
 bwt_enc(orig)             ( 18) OOOOOOOOOOOOHHW{}!
 bwt_dec(bwt_enc(orig))    ( 16) WOOOOHOOOOHOOOO!
